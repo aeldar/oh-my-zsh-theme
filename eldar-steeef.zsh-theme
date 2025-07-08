@@ -44,7 +44,7 @@ fi
 
 reset_color="%f"
 
-# added by Eldar
+# Show node.js version if available
 function node_js_info {
     [ ! -f package.json ] && exit
     if command -v node &> /dev/null; then
@@ -53,7 +53,7 @@ function node_js_info {
     fi
 }
 
-# added by Eldar
+# Show Angular version if available
 function angular_info {
     # check requirements (jq to extract version)
     command -v jq &> /dev/null || exit
@@ -67,7 +67,7 @@ function angular_info {
     echo "${angular} $ANGULAR_VERSION${reset_color}"
 }
 
-# added by Eldar for React
+# Show React version if available
 function react_info {
     # check requirements (jq to extract version)
     command -v jq &> /dev/null || exit
@@ -81,7 +81,7 @@ function react_info {
     echo "${react} $REACT_VERSION${reset_color}"
 }
 
-# added by Eldar for nix
+# Show Nix shell information if available
 function nix_shell_prompt {
   if [[ -n "$IN_NIX_SHELL" ]]; then
     echo "${nix}( nix, $IN_NIX_SHELL)${reset_color} "
